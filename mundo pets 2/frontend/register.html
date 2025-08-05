@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registro - Mundo Pets</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="overlay">
+    <div class="form-container">
+      <h2>Registrarse</h2>
+      <input type="text" id="newUsername" placeholder="Usuario" />
+      <input type="password" id="newPassword" placeholder="Contraseña" />
+      <button onclick="register()">Crear Cuenta</button>
+    </div>
+  </div>
+  <script>
+    async function register() {
+      const username = document.getElementById('newUsername').value;
+      const password = document.getElementById('newPassword').value;
+
+      const res = await fetch('http://localhost:5000/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+
+      const data = await res.json();
+      if (data.token) {
+        alert('Registro exitoso');
+        window.location.href = 'login.html';
+      } else {
+        alert(data.error);
+      }
+    }
+  </script>
+</body>
+</html>
