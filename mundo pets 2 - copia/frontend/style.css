@@ -1,0 +1,979 @@
+/* Variables CSS personalizadas */
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --success-color: #198754;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #0dcaf0;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --border-radius: 1rem;
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 1rem 2.5rem rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-success: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  --gradient-warning: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-info: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: url('../img/fondomundopet.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Overlay principal mejorado */
+.overlay {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(2px);
+  min-height: 100vh;
+  padding: 1rem 0;
+  position: relative;
+}
+
+/* Navbar profesional */
+.navbar {
+  background: var(--gradient-primary) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+}
+
+.brand-subtitle {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.navbar-brand i {
+  color: var(--warning-color);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.navbar-nav .btn {
+  border-radius: 2rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: var(--transition);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-nav .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.navbar-nav .btn:hover::before {
+  left: 100%;
+}
+
+.navbar-nav .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 3rem 0;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 120px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Contenido principal mejorado */
+.display-4 {
+  font-weight: 900;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  letter-spacing: -1px;
+}
+
+.lead {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+  line-height: 1.6;
+}
+
+/* Catálogo profesional */
+.catalog-card {
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.catalog-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 1;
+}
+
+.catalog-card:hover::before {
+  opacity: 0.05;
+}
+
+.catalog-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* Category Badges */
+.category-badge {
+  position: relative;
+  z-index: 3;
+}
+
+.category-badge .badge {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+}
+
+/* Icon Wrapper */
+.icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
+  position: relative;
+  z-index: 2;
+}
+
+.catalog-card:hover .icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.catalog-icon {
+  transition: var(--transition);
+  position: relative;
+  z-index: 2;
+}
+
+.catalog-card:hover .catalog-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* Category Features */
+.category-features {
+  position: relative;
+  z-index: 3;
+}
+
+.category-features small {
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.catalog-card .btn {
+  border-radius: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+  background: var(--gradient-primary);
+  border: none;
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.catalog-card .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.catalog-card .btn:hover::before {
+  left: 100%;
+}
+
+.catalog-card .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(13, 110, 253, 0.4);
+}
+
+/* Efectos de sombra mejorados */
+.shadow-hover {
+  transition: var(--transition);
+}
+
+.shadow-hover:hover {
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* Modales profesionales */
+.modal-content {
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.modal-header {
+  border-bottom: none;
+  padding: 2rem 2rem 1rem;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.modal-title {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-footer {
+  border-top: none;
+  padding: 1rem 2rem 2rem;
+  background: rgba(248, 249, 250, 0.8);
+}
+
+/* Productos mejorados */
+.product-card {
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.product-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.product-icon {
+  color: var(--primary-color);
+  transition: var(--transition);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.product-card:hover .product-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.product-price {
+  color: var(--success-color);
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Carrito mejorado */
+.cart-items {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.cart-items::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cart-items::-webkit-scrollbar-track {
+  background: rgba(248, 249, 250, 0.8);
+  border-radius: 4px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: 4px;
+}
+
+.cart-items::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-info);
+}
+
+/* Botones de cantidad mejorados */
+.btn-group .btn {
+  border-radius: 0.5rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.btn-group .btn:hover {
+  transform: scale(1.1);
+}
+
+/* Checkout mejorado */
+.checkout-summary {
+  background: rgba(248, 249, 250, 0.8);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.payment-methods .btn {
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  font-weight: 700;
+  transition: var(--transition);
+  border-width: 2px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.payment-methods .btn:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.payment-methods .btn i {
+  display: block;
+  margin-bottom: 0.75rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Botones principales mejorados */
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-lg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.btn-lg:hover::before {
+  left: 100%;
+}
+
+.btn-lg:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* Badges mejorados */
+.badge {
+  font-size: 0.75rem;
+  padding: 0.5em 0.75em;
+  font-weight: 700;
+  border-radius: 1rem;
+}
+
+/* Sección de Beneficios */
+.benefit-item {
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+}
+
+.benefit-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: var(--box-shadow);
+}
+
+.benefit-item i {
+  color: var(--primary-color);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.benefit-item h5 {
+  color: var(--dark-color);
+  margin-bottom: 0.5rem;
+}
+
+.benefit-item p {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Animaciones mejoradas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.catalog-card {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.catalog-card:nth-child(1) { animation-delay: 0.1s; }
+.catalog-card:nth-child(2) { animation-delay: 0.2s; }
+.catalog-card:nth-child(3) { animation-delay: 0.3s; }
+.catalog-card:nth-child(4) { animation-delay: 0.4s; }
+
+.navbar-brand {
+  animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-stats .stat-item {
+  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-stats .stat-item:nth-child(1) { animation-delay: 0.5s; }
+.hero-stats .stat-item:nth-child(2) { animation-delay: 0.7s; }
+.hero-stats .stat-item:nth-child(3) { animation-delay: 0.9s; }
+
+/* Responsive design profesional */
+@media (max-width: 1400px) {
+  .catalog-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  .hero-stats {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .catalog-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .display-4 {
+    font-size: 3rem;
+  }
+  
+  .lead {
+    font-size: 1.25rem;
+  }
+  
+  .hero-stats {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .overlay {
+    padding: 1rem 0;
+  }
+  
+  .navbar {
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .display-4 {
+    font-size: 2.5rem;
+  }
+  
+  .lead {
+    font-size: 1.1rem;
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+  }
+  
+  .catalog-card .btn {
+    font-size: 0.9rem;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .hero-stats {
+    gap: 1rem;
+  }
+  
+  .stat-item {
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    padding: 0.75rem 0;
+  }
+  
+  .navbar {
+    margin-bottom: 1rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+  
+  .brand-title {
+    font-size: 1.25rem;
+  }
+  
+  .brand-subtitle {
+    font-size: 0.75rem;
+  }
+  
+  .display-4 {
+    font-size: 2rem;
+  }
+  
+  .lead {
+    font-size: 1rem;
+  }
+  
+  .modal-body {
+    padding: 1rem;
+  }
+  
+  .catalog-card {
+    margin-bottom: 1rem;
+  }
+  
+  .catalog-card .btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .payment-methods .btn {
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .stat-item {
+    min-width: 150px;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-fluid {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  .overlay {
+    padding: 0.5rem 0;
+  }
+  
+  .navbar {
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+  
+  .brand-title {
+    font-size: 1.1rem;
+  }
+  
+  .brand-subtitle {
+    font-size: 0.7rem;
+  }
+  
+  .display-4 {
+    font-size: 1.75rem;
+  }
+  
+  .lead {
+    font-size: 0.9rem;
+  }
+  
+  .catalog-card {
+    margin-bottom: 0.75rem;
+  }
+  
+  .modal-dialog {
+    margin: 0.5rem;
+  }
+  
+  .payment-methods .btn {
+    padding: 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .catalog-card .btn {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .hero-section {
+    padding: 2rem 0;
+  }
+  
+  .stat-item {
+    min-width: 120px;
+  }
+  
+  .stat-number {
+    font-size: 1.25rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-fluid {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1rem;
+  }
+  
+  .brand-title {
+    font-size: 1rem;
+  }
+  
+  .brand-subtitle {
+    font-size: 0.65rem;
+  }
+  
+  .display-4 {
+    font-size: 1.5rem;
+  }
+  
+  .lead {
+    font-size: 0.85rem;
+  }
+  
+  .catalog-card {
+    margin-bottom: 0.5rem;
+  }
+  
+  .catalog-card .btn {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+  }
+  
+  .hero-section {
+    padding: 1.5rem 0;
+  }
+  
+  .stat-item {
+    min-width: 100px;
+  }
+  
+  .stat-number {
+    font-size: 1.1rem;
+  }
+  
+  .stat-label {
+    font-size: 0.75rem;
+  }
+}
+
+/* Estados de hover y focus mejorados */
+.btn:focus,
+.btn:active {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  transform: scale(0.98);
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  transform: scale(1.02);
+}
+
+/* Efectos de transición suaves */
+* {
+  transition: var(--transition);
+}
+
+/* Scrollbar personalizado profesional */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(248, 249, 250, 0.8);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: 5px;
+  border: 2px solid rgba(248, 249, 250, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-info);
+}
+
+/* Mejoras para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .catalog-card:hover {
+    transform: none;
+  }
+  
+  .btn:hover {
+    transform: none;
+  }
+  
+  .catalog-card:active {
+    transform: scale(0.98);
+  }
+  
+  .btn:active {
+    transform: scale(0.95);
+  }
+  
+  .catalog-card:focus {
+    transform: scale(1.02);
+  }
+}
+
+/* Optimizaciones para modo oscuro del sistema */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --light-color: #343a40;
+    --dark-color: #f8f9fa;
+  }
+  
+  .overlay {
+    background: rgba(33, 37, 41, 0.9);
+  }
+  
+  .modal-content {
+    background-color: rgba(33, 37, 41, 0.95);
+    color: var(--dark-color);
+  }
+  
+  .catalog-card {
+    background: rgba(33, 37, 41, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .benefit-item {
+    background: rgba(33, 37, 41, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .benefit-item:hover {
+    background: rgba(33, 37, 41, 0.2);
+  }
+}
+
+/* Efectos de glassmorphism mejorados */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradientes personalizados mejorados */
+.gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.gradient-success {
+  background: var(--gradient-success);
+}
+
+.gradient-warning {
+  background: var(--gradient-warning);
+}
+
+.gradient-info {
+  background: var(--gradient-info);
+}
+
+/* Sombras personalizadas mejoradas */
+.shadow-custom {
+  box-shadow: var(--box-shadow);
+}
+
+.shadow-custom:hover {
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* Efectos de carga y estados */
+.loading {
+  animation: pulse 1.5s infinite;
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Soporte para pantallas de alta densidad */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .catalog-card {
+    border-width: 0.5px;
+  }
+  
+  .btn {
+    border-width: 0.5px;
+  }
+}

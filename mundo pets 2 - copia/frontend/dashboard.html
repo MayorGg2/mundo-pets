@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Mundo Pets</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <div class="overlay">
+    <!-- Header con Navbar Profesional -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary rounded-4 mb-4 shadow-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+          <div class="brand-icon me-3">
+            <i class="fas fa-paw fa-2x text-warning"></i>
+          </div>
+          <div>
+            <span class="d-block brand-title">Mundo Pets</span>
+            <small class="brand-subtitle">Tu tienda de confianza</small>
+          </div>
+        </a>
+        
+        <div class="navbar-nav ms-auto d-flex align-items-center">
+          <button onclick="showCart()" class="btn btn-success btn-lg me-3 position-relative">
+            <i class="fas fa-shopping-cart me-2"></i>
+            <span class="d-none d-md-inline">Carrito</span>
+            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger fs-6">0</span>
+          </button>
+          <button onclick="logout()" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-sign-out-alt me-2"></i>
+            <span class="d-none d-md-inline">Cerrar Sesión</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container-fluid mb-5">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="text-center hero-section">
+            <h1 class="display-3 fw-bold text-primary mb-4">
+              <i class="fas fa-store me-3"></i>Catálogo Premium
+            </h1>
+            <p class="lead text-muted fs-4 mb-4">Descubre la mejor selección de productos para tu mascota</p>
+            <div class="hero-stats d-flex justify-content-center gap-5 mb-4">
+              <div class="stat-item">
+                <i class="fas fa-boxes fa-2x text-primary mb-2"></i>
+                <div class="stat-number">4</div>
+                <div class="stat-label">Categorías</div>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-star fa-2x text-warning mb-2"></i>
+                <div class="stat-number">16</div>
+                <div class="stat-label">Productos</div>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-shipping-fast fa-2x text-success mb-2"></i>
+                <div class="stat-number">24h</div>
+                <div class="stat-label">Envío</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Catálogo Principal -->
+    <div class="container-fluid">
+      <div class="row g-4 justify-content-center">
+        <!-- Categoría Alimentos -->
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+          <div class="card catalog-card h-100 shadow-hover" onclick="showProducts('alimentos')">
+            <div class="card-body text-center p-4">
+              <div class="category-badge mb-3">
+                <span class="badge bg-warning text-dark fs-6 px-3 py-2">
+                  <i class="fas fa-fire me-2"></i>Popular
+                </span>
+              </div>
+              <div class="catalog-icon mb-4">
+                <div class="icon-wrapper bg-warning bg-opacity-10 p-4 rounded-circle">
+                  <i class="fas fa-bone fa-4x text-warning"></i>
+                </div>
+              </div>
+              <h3 class="card-title h3 text-primary mb-3 fw-bold">Alimentos</h3>
+              <p class="card-text text-muted mb-4 fs-6">Nutrición balanceada y premium para el bienestar de tu mascota</p>
+              <div class="category-features mb-4">
+                <div class="row g-2 text-center">
+                  <div class="col-6">
+                    <small class="text-success">
+                      <i class="fas fa-check-circle me-1"></i>Premium
+                    </small>
+                  </div>
+                  <div class="col-6">
+                    <small class="text-info">
+                      <i class="fas fa-leaf me-1"></i>Natural
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-lg w-100 fw-bold">
+                <i class="fas fa-eye me-2"></i>Explorar Productos
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoría Medicamentos -->
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+          <div class="card catalog-card h-100 shadow-hover" onclick="showProducts('medicamentos')">
+            <div class="card-body text-center p-4">
+              <div class="category-badge mb-3">
+                <span class="badge bg-danger text-white fs-6 px-3 py-2">
+                  <i class="fas fa-shield-alt me-2"></i>Salud
+                </span>
+              </div>
+              <div class="catalog-icon mb-4">
+                <div class="icon-wrapper bg-danger bg-opacity-10 p-4 rounded-circle">
+                  <i class="fas fa-pills fa-4x text-danger"></i>
+                </div>
+              </div>
+              <h3 class="card-title h3 text-primary mb-3 fw-bold">Medicamentos</h3>
+              <p class="card-text text-muted mb-4 fs-6">Cuidado médico profesional para mantener a tu mascota saludable</p>
+              <div class="category-features mb-4">
+                <div class="row g-2 text-center">
+                  <div class="col-6">
+                    <small class="text-success">
+                      <i class="fas fa-certificate me-1"></i>Certificado
+                    </small>
+                  </div>
+                  <div class="col-6">
+                    <small class="text-info">
+                      <i class="fas fa-user-md me-1"></i>Profesional
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-lg w-100 fw-bold">
+                <i class="fas fa-eye me-2"></i>Explorar Productos
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoría Peluquería -->
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+          <div class="card catalog-card h-100 shadow-hover" onclick="showProducts('peluqueria')">
+            <div class="card-body text-center p-4">
+              <div class="category-badge mb-3">
+                <span class="badge bg-info text-white fs-6 px-3 py-2">
+                  <i class="fas fa-spa me-2"></i>Belleza
+                </span>
+              </div>
+              <div class="catalog-icon mb-4">
+                <div class="icon-wrapper bg-info bg-opacity-10 p-4 rounded-circle">
+                  <i class="fas fa-cut fa-4x text-info"></i>
+                </div>
+              </div>
+              <h3 class="card-title h3 text-primary mb-3 fw-bold">Peluquería</h3>
+              <p class="card-text text-muted mb-4 fs-6">Servicios de belleza y cuidado para que tu mascota se vea espectacular</p>
+              <div class="category-features mb-4">
+                <div class="row g-2 text-center">
+                  <div class="col-6">
+                    <small class="text-success">
+                      <i class="fas fa-magic me-1"></i>Profesional
+                    </small>
+                  </div>
+                  <div class="col-6">
+                    <small class="text-info">
+                      <i class="fas fa-heart me-1"></i>Premium
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-lg w-100 fw-bold">
+                <i class="fas fa-eye me-2"></i>Explorar Productos
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoría Guardería -->
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+          <div class="card catalog-card h-100 shadow-hover" onclick="showProducts('guarderia')">
+            <div class="card-body text-center p-4">
+              <div class="category-badge mb-3">
+                <span class="badge bg-success text-white fs-6 px-3 py-2">
+                  <i class="fas fa-home me-2"></i>Servicios
+                </span>
+              </div>
+              <div class="catalog-icon mb-4">
+                <div class="icon-wrapper bg-success bg-opacity-10 p-4 rounded-circle">
+                  <i class="fas fa-home fa-4x text-success"></i>
+                </div>
+              </div>
+              <h3 class="card-title h3 text-primary mb-3 fw-bold">Guardería</h3>
+              <p class="card-text text-muted mb-4 fs-6">Cuidado y atención profesional en un ambiente seguro y amoroso</p>
+              <div class="category-features mb-4">
+                <div class="row g-2 text-center">
+                  <div class="col-6">
+                    <small class="text-success">
+                      <i class="fas fa-clock me-1"></i>24/7
+                    </small>
+                  </div>
+                  <div class="col-6">
+                    <small class="text-info">
+                      <i class="fas fa-users me-1"></i>Personalizado
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-lg w-100 fw-bold">
+                <i class="fas fa-eye me-2"></i>Explorar Productos
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de Beneficios -->
+    <div class="container-fluid mt-5">
+      <div class="row g-4">
+        <div class="col-12">
+          <div class="card border-0 shadow-lg">
+            <div class="card-body p-5">
+              <div class="row g-4 text-center">
+                <div class="col-lg-3 col-md-6">
+                  <div class="benefit-item">
+                    <i class="fas fa-shipping-fast fa-3x text-primary mb-3"></i>
+                    <h5 class="fw-bold">Envío Gratis</h5>
+                    <p class="text-muted">En compras superiores a $100.000</p>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <div class="benefit-item">
+                    <i class="fas fa-shield-alt fa-3x text-success mb-3"></i>
+                    <h5 class="fw-bold">Garantía</h5>
+                    <p class="text-muted">30 días de garantía en todos los productos</p>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <div class="benefit-item">
+                    <i class="fas fa-headset fa-3x text-info mb-3"></i>
+                    <h5 class="fw-bold">Soporte 24/7</h5>
+                    <p class="text-muted">Atención personalizada cuando la necesites</p>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <div class="benefit-item">
+                    <i class="fas fa-credit-card fa-3x text-warning mb-3"></i>
+                    <h5 class="fw-bold">Pagos Seguros</h5>
+                    <p class="text-muted">Múltiples métodos de pago disponibles</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Productos Mejorado -->
+  <div class="modal fade" id="productsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen-lg-down modal-xl">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header bg-gradient-primary text-white">
+          <h2 class="modal-title fw-bold" id="modalTitle">
+            <i class="fas fa-boxes me-3"></i>Catálogo de Productos
+          </h2>
+          <button type="button" class="btn-close btn-close-white" onclick="closeModal()"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div id="productsContainer" class="row g-4">
+            <!-- Los productos se cargarán aquí dinámicamente -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal del Carrito Mejorado -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header bg-gradient-success text-white">
+          <h2 class="modal-title fw-bold">
+            <i class="fas fa-shopping-cart me-3"></i>Carrito de Compras
+          </h2>
+          <button type="button" class="btn-close btn-close-white" onclick="closeCartModal()"></button>
+        </div>
+        <div class="modal-body p-0">
+          <div id="cartItems" class="cart-items p-4">
+            <!-- Los items del carrito se cargarán aquí -->
+          </div>
+        </div>
+        <div class="modal-footer bg-light">
+          <div class="d-flex justify-content-between align-items-center w-100">
+            <h3 class="mb-0 text-primary fw-bold">Total: $<span id="cartTotal">0</span></h3>
+            <button onclick="checkout()" class="btn btn-success btn-lg fw-bold">
+              <i class="fas fa-credit-card me-2"></i>Proceder al Pago
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Checkout Mejorado -->
+  <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header bg-gradient-info text-white">
+          <h2 class="modal-title fw-bold">
+            <i class="fas fa-credit-card me-3"></i>Finalizar Compra
+          </h2>
+          <button type="button" class="btn-close btn-close-white" onclick="closeCheckoutModal()"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="checkout-form">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <h3 class="h5 text-primary mb-3 fw-bold">
+                  <i class="fas fa-list me-2"></i>Resumen de la Compra
+                </h3>
+                <div id="checkoutSummary" class="checkout-summary">
+                  <!-- Resumen de la compra -->
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <h3 class="h5 text-primary mb-3 fw-bold">
+                  <i class="fas fa-credit-card me-2"></i>Método de Pago
+                </h3>
+                <div class="payment-methods">
+                  <div class="d-grid gap-3">
+                    <button class="payment-btn btn btn-outline-primary btn-lg" onclick="selectPayment('pse')">
+                      <i class="fas fa-university fa-2x mb-2"></i>
+                      <span class="d-block fw-bold">PSE</span>
+                      <small class="text-muted">Pagos Seguros en Línea</small>
+                    </button>
+                    <button class="payment-btn btn btn-outline-primary btn-lg" onclick="selectPayment('mercadopago')">
+                      <i class="fab fa-cc-mastercard fa-2x mb-2"></i>
+                      <span class="d-block fw-bold">Mercado Pago</span>
+                      <small class="text-muted">Pago con tarjeta</small>
+                    </button>
+                    <button class="payment-btn btn btn-outline-primary btn-lg" onclick="selectPayment('efectivo')">
+                      <i class="fas fa-money-bill-wave fa-2x mb-2"></i>
+                      <span class="d-block fw-bold">Efectivo</span>
+                      <small class="text-muted">Pago en tienda</small>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="text-center mt-4">
+              <button onclick="processPayment()" class="btn btn-success btn-lg px-5 fw-bold">
+                <i class="fas fa-check me-2"></i>Confirmar Pago
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+  
+ <!-- Redes Sociales Oficiales -->
+<section class="container text-center my-5">
+  <h5 class="fw-bold mb-4">Síguenos en nuestras redes sociales</h5>
+  <div class="d-flex justify-content-center gap-3 flex-wrap">
+    <!-- Botón TikTok -->
+    <a href="https://www.tiktok.com/@mundo.pets91?_t=ZS-8ywbAn9fLAV&_r=1"
+       class="btn btn-dark d-flex align-items-center gap-2 px-4 py-2 rounded-pill shadow-sm"
+       target="_blank">
+      <i class="fab fa-tiktok fa-lg"></i> TikTok
+    </a>
+
+    <!-- Botón Instagram -->
+    <a href="https://www.instagram.com/official_mundopets?igsh=MXMxeXJlNGRjN2R4Ng%3D%3D&utm_source=qr"
+       class="btn btn-danger d-flex align-items-center gap-2 px-4 py-2 rounded-pill shadow-sm"
+       target="_blank">
+      <i class="fab fa-instagram fa-lg"></i> Instagram
+    </a>
+  </div>
+</section>
+</div>
+</a>
+</body>
+</html>
